@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Página Geral do Professor
+{% endblock title %}
+
+{% block main %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4" style="color: #004d40; font-weight: bold;">
+    Página Geral do Professor
+  </h1>
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-4 mb-3">
+      <a href="{% url 'listarTemasPage' %}" class="btn btn-lg" style="background-color: #00796b; color: white; border: 1px solid #004d40;">
+        Administrar Temas
+      </a>
+    </div>
+    <div class="col-md-4 mb-3">
+      <a href="{% url 'listarPalavrasPage' %}" class="btn btn-lg" style="background-color: #00796b; color: white; border: 1px solid #004d40;">
+        Administrar Palavras
+      </a>
+    </div>
+    <div class="col-md-4 mb-3">
+      <a href="{% url 'relatorioAtividade' %}" class="btn btn-lg" style="background-color: #00796b; color: white; border: 1px solid #004d40;">
+        Relatórios
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock main %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Você Perdeu!
+{% endblock title %}
+
+{% block main %}
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1 class="display-3" style="color: #cc0000;">Que pena!</h1>
+    <p class="lead" style="color: #555555;">Você não conseguiu acertar a palavra.</p>
+    <a href="{% url 'homePage' %}" class="btn btn-lg" style="background-color: #ff6666; color: white; border: 1px solid #cc0000;">
+      Voltar ao Início
+    </a>
+  </div>
+</div>
+{% endblock main %}

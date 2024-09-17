@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %} Confirmar Exclusão {% endblock title %}
+
+{% block main %}
+<div class="container">
+  <h1 class="text-center mb-4">Confirmar Exclusão</h1>
+
+  <!-- Confirmação para exclusão de tema -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p>Você tem certeza de que deseja excluir o tema "{{ object.nome }}"?</p>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a href="{% url 'listarTemasPage' %}" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main %}

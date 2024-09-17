@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Você Venceu!
+{% endblock title %}
+
+{% block main %}
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1 class="display-3" style="color: #28a745;">Parabéns!</h1>
+    <p class="lead" style="color: #444444;">Você acertou todas as letras!</p>
+    <a href="{% url 'homePage' %}" class="btn btn-lg" style="background-color: #28a745; color: white; border: 1px solid #1e7e34;">
+      Voltar ao Início
+    </a>
+  </div>
+</div>
+{% endblock main %}

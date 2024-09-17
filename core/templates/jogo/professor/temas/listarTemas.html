@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <div class="container mt-4">
+    <h2 class="mb-4">Gerenciar Temas</h2>
+    <a class="btn btn-primary mb-3" href="{% url 'adicionarTema' %}">Adicionar Novo Tema</a>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tema in object_list %}
+            <tr>
+              <td>{{ tema.nome }}</td>
+              <td>{{ tema.descricao }}</td>
+              <td>
+                <a class="btn btn-warning btn-sm" href="{% url 'editarTema' tema.pk %}">Editar</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'deletarTema' tema.pk %}">Deletar</a>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="3" class="text-center">Nenhum tema encontrado.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

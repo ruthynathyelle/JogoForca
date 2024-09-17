@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Página Inicial
+{% endblock title %}
+
+{% block main %}
+<div class="container my-5">
+  <h1 class="text-center mb-5">Jogo da Forca</h1>
+
+  <!-- Formulário de Filtro -->
+  <form method="get" class="mb-4">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="professor" class="form-label">Professor</label>
+        <select id="professor" name="professor" class="form-select">
+          <option value="">-- Todos os Professores --</option>
+          {% for professor in professores %}
+            <option value="{{ professor.id }}" {% if request.GET.professor == professor.id|stringformat:"s" %}selected{% endif %}>{{ professor.username }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="tema" class="form-label">Tema</label>
+        <select id="tema" name="tema" class="form-select">
+          <option value="">-- Todos os Temas --</option>
+          {% for tema in temas %}
+            <option value="{{ tema.id }}" {% if request.GET.tema == tema.id|stringformat:"s" %}selected{% endif %}>{{ tema.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4 d-flex align-items-end mb-3">
+        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row justify-content-center">
+    {% for tema in temas %}
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ tema.nome }}</h5>
+          <p class="card-text">{{ tema.descricao }}</p>
+          <p class="card-text"><small class="text-muted">Professor: {{ tema.professor.username }}</small></p>
+          <a href="{% url 'temaDetalhes' tema.id %}" class="btn btn-primary">Sobre o Tema</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center">Nenhum tema disponível no momento.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock main %}
