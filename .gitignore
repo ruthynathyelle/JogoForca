@@ -1,0 +1,3 @@
+venv/
+jogoForca_db.sqlite3
+__pycache/__
